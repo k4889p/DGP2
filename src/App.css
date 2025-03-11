@@ -49,3 +49,22 @@
   text-wrap: balance;
 }
 
+/* Mobile menu fixes */
+#mobile-menu {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+body.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Fix for iOS Safari address bar issues */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+  #mobile-menu {
+    height: -webkit-fill-available;
+  }
+}

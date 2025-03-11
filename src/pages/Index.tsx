@@ -10,15 +10,19 @@ import Footer from '@/components/Footer';
 
 const Index: React.FC = () => {
   useEffect(() => {
-    // Smooth scrolling for anchor links
+    // Smooth scrolling for anchor links with offset for fixed navbar
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
         
         const target = document.querySelector(this.getAttribute('href') as string);
         if (target) {
+          const headerOffset = 80; // Offset for fixed navbar
+          const elementPosition = (target as HTMLElement).getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
           window.scrollTo({
-            top: (target as HTMLElement).offsetTop,
+            top: offsetPosition,
             behavior: 'smooth'
           });
         }

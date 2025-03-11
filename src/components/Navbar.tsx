@@ -18,8 +18,48 @@ const Navbar: React.FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrolled]);
+    
+    // Close menu on resize (if desktop view appears)
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [scrolled, isOpen]);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isOpen && !target.closest('#mobile-menu') && !target.closest('#menu-toggle')) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   const navItems = [
     { name: 'Home', href: '#home' },
@@ -37,7 +77,7 @@ const Navbar: React.FC = () => {
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="flex items-center">
+        <a href="#home" className="flex items-center z-50">
           <span className="text-cherry-500 font-bold text-2xl tracking-tight">DPM</span>
           <span className="text-gray-900 font-medium text-2xl ml-1">Properties</span>
         </a>
@@ -65,9 +105,11 @@ const Navbar: React.FC = () => {
         
         {/* Mobile Menu Button */}
         <button
+          id="menu-toggle"
           onClick={toggleMenu}
-          className="md:hidden text-gray-800 hover:text-cherry-500 transition-colors duration-200"
+          className="md:hidden text-gray-800 hover:text-cherry-500 transition-colors duration-200 z-50"
           aria-label="Toggle menu"
+          aria-expanded={isOpen}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -75,6 +117,7 @@ const Navbar: React.FC = () => {
       
       {/* Mobile Menu */}
       <div
+        id="mobile-menu"
         className={cn(
           'md:hidden fixed inset-0 z-40 bg-white transform transition-transform duration-300 ease-in-out pt-20',
           isOpen ? 'translate-x-0' : 'translate-x-full'
