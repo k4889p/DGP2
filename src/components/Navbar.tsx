@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Home, Info, Building, MessageSquare, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Navbar: React.FC = () => {
@@ -62,24 +62,29 @@ const Navbar: React.FC = () => {
   }, [isOpen]);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Properties', href: '#properties' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '#home', icon: <Home size={16} className="mr-1" /> },
+    { name: 'About', href: '#about', icon: <Info size={16} className="mr-1" /> },
+    { name: 'Properties', href: '#properties', icon: <Building size={16} className="mr-1" /> },
+    { name: 'Testimonials', href: '#testimonials', icon: <MessageSquare size={16} className="mr-1" /> },
+    { name: 'Contact', href: '#contact', icon: <Phone size={16} className="mr-1" /> },
   ];
 
   return (
     <nav 
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out',
-        scrolled ? 'glass py-3' : 'bg-transparent py-5'
+        scrolled ? 'glass py-3 shadow-md' : 'bg-transparent py-5'
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="flex items-center z-50">
-          <span className="text-cherry-500 font-bold text-2xl tracking-tight">DPM</span>
-          <span className="text-gray-900 font-medium text-2xl ml-1">Properties</span>
+        <a href="#home" className="flex items-center z-50 relative">
+          <div className={cn(
+            "flex items-center transition-all duration-300",
+            scrolled ? "scale-90" : "scale-100"
+          )}>
+            <span className="text-cherry-500 font-bold text-2xl tracking-tight">DPM</span>
+            <span className="text-gray-900 font-medium text-2xl ml-1">Properties</span>
+          </div>
         </a>
         
         {/* Desktop Navigation */}
@@ -88,9 +93,12 @@ const Navbar: React.FC = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-gray-800 hover:text-cherry-500 transition-colors duration-200 font-medium"
+              className="text-gray-800 hover:text-cherry-500 transition-colors duration-200 font-medium flex items-center group"
             >
-              {item.name}
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 transform -translate-x-2 group-hover:translate-x-0">
+                {item.icon}
+              </span>
+              <span>{item.name}</span>
             </a>
           ))}
         </div>
@@ -98,8 +106,9 @@ const Navbar: React.FC = () => {
         {/* Contact Button */}
         <a
           href="#contact"
-          className="hidden md:block cherry-gradient text-white font-medium py-2 px-6 rounded-full hover:shadow-lg transition-shadow duration-300"
+          className="hidden md:flex cherry-gradient text-white font-medium py-2 px-6 rounded-full hover:shadow-lg transition-all duration-300 items-center hover:scale-105"
         >
+          <Phone size={16} className="mr-2" />
           Get in touch
         </a>
         
@@ -107,11 +116,16 @@ const Navbar: React.FC = () => {
         <button
           id="menu-toggle"
           onClick={toggleMenu}
-          className="md:hidden text-gray-800 hover:text-cherry-500 transition-colors duration-200 z-50"
+          className="md:hidden text-gray-800 hover:text-cherry-500 transition-colors duration-200 z-50 relative"
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          <div className="relative h-6 w-6 flex items-center justify-center">
+            {isOpen ? 
+              <X size={24} className="absolute animate-scale-up" /> : 
+              <Menu size={24} className="absolute animate-scale-up" />
+            }
+          </div>
         </button>
       </div>
       
@@ -119,7 +133,7 @@ const Navbar: React.FC = () => {
       <div
         id="mobile-menu"
         className={cn(
-          'md:hidden fixed inset-0 z-40 bg-white transform transition-transform duration-300 ease-in-out pt-20',
+          'md:hidden fixed inset-0 z-40 bg-white/95 backdrop-blur-sm transform transition-transform duration-300 ease-in-out pt-20',
           isOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
@@ -128,17 +142,21 @@ const Navbar: React.FC = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-xl text-gray-800 hover:text-cherry-500 transition-colors duration-200"
+              className="text-xl text-gray-800 hover:text-cherry-500 transition-colors duration-200 flex items-center"
               onClick={() => setIsOpen(false)}
             >
+              <span className="mr-3 text-cherry-500">
+                {item.icon}
+              </span>
               {item.name}
             </a>
           ))}
           <a
             href="#contact"
-            className="cherry-gradient text-white font-medium py-3 px-8 rounded-full mt-4 text-center w-full"
+            className="cherry-gradient text-white font-medium py-3 px-8 rounded-full mt-4 text-center w-full flex items-center justify-center"
             onClick={() => setIsOpen(false)}
           >
+            <Phone size={18} className="mr-2" />
             Get in touch
           </a>
         </div>

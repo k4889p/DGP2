@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Clock } from 'lucide-react';
 import FadeIn from './FadeIn';
 import { useToast } from '@/hooks/use-toast';
 
@@ -44,19 +44,19 @@ const Contact: React.FC = () => {
   
   const contactInfo = [
     {
-      icon: <Phone size={20} />,
+      icon: <Phone className="w-5 h-5" />,
       title: 'Call Us',
       info: '+91 98765 43210',
       link: 'tel:+919876543210'
     },
     {
-      icon: <Mail size={20} />,
+      icon: <Mail className="w-5 h-5" />,
       title: 'Email Us',
       info: 'contact@dpmproperties.com',
       link: 'mailto:contact@dpmproperties.com'
     },
     {
-      icon: <MapPin size={20} />,
+      icon: <MapPin className="w-5 h-5" />,
       title: 'Visit Us',
       info: 'Mumbai, Maharashtra, India',
       link: 'https://maps.google.com'
@@ -77,10 +77,13 @@ const Contact: React.FC = () => {
         </FadeIn>
         
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-10">
             <FadeIn direction="left" className="lg:col-span-2">
-              <div className="bg-white rounded-xl shadow-elegant p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Contact Information</h3>
+              <div className="bg-white rounded-xl shadow-elegant p-6 md:p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                  <Mail className="mr-2 text-cherry-500" size={20} />
+                  Contact Information
+                </h3>
                 
                 <div className="space-y-6">
                   {contactInfo.map((item, index) => (
@@ -89,14 +92,14 @@ const Contact: React.FC = () => {
                       href={item.link}
                       target={item.title === 'Visit Us' ? '_blank' : undefined}
                       rel={item.title === 'Visit Us' ? 'noopener noreferrer' : undefined}
-                      className="flex items-start gap-4 group"
+                      className="flex items-start gap-4 group w-full max-w-full overflow-hidden"
                     >
                       <div className="w-10 h-10 rounded-full cherry-gradient flex items-center justify-center flex-shrink-0 text-white group-hover:scale-110 transition-transform">
                         {item.icon}
                       </div>
-                      <div>
+                      <div className="overflow-hidden">
                         <h4 className="font-medium text-gray-900">{item.title}</h4>
-                        <p className="text-gray-600 group-hover:text-cherry-500 transition-colors">
+                        <p className="text-gray-600 group-hover:text-cherry-500 transition-colors truncate">
                           {item.info}
                         </p>
                       </div>
@@ -105,8 +108,11 @@ const Contact: React.FC = () => {
                 </div>
                 
                 <div className="mt-10">
-                  <h4 className="font-medium text-gray-900 mb-4">Business Hours</h4>
-                  <div className="space-y-2 text-gray-600">
+                  <h4 className="font-medium text-gray-900 mb-4 flex items-center">
+                    <Clock className="mr-2 text-cherry-500" size={18} />
+                    Business Hours
+                  </h4>
+                  <div className="space-y-2 text-gray-600 pl-6">
                     <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
                     <p>Saturday: 10:00 AM - 4:00 PM</p>
                     <p>Sunday: Closed</p>
@@ -116,8 +122,11 @@ const Contact: React.FC = () => {
             </FadeIn>
             
             <FadeIn direction="right" delay={200} className="lg:col-span-3">
-              <div className="bg-white rounded-xl shadow-elegant p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
+              <div className="bg-white rounded-xl shadow-elegant p-6 md:p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                  <Send className="mr-2 text-cherry-500" size={20} />
+                  Send Us a Message
+                </h3>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

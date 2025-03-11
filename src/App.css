@@ -53,6 +53,7 @@
 #mobile-menu {
   height: 100vh;
   overflow-y: auto;
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
 }
 
 body.overflow-hidden {
@@ -66,5 +67,31 @@ body.overflow-hidden {
   }
   #mobile-menu {
     height: -webkit-fill-available;
+  }
+}
+
+/* Navbar icon animation */
+@keyframes iconSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.nav-icon {
+  animation: iconSlideIn 0.3s ease-out;
+}
+
+/* Truncate long text in mobile views */
+@media (max-width: 640px) {
+  .truncate-mobile {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
   }
 }
