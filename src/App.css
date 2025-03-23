@@ -86,6 +86,24 @@ body.overflow-hidden {
   animation: iconSlideIn 0.3s ease-out;
 }
 
+/* Social media icons hover effects */
+.social-icon {
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+}
+
+/* Logo animation on scroll */
+.logo-container {
+  transition: all 0.3s ease;
+}
+
+.scrolled .logo-container {
+  transform: scale(0.9);
+}
+
 /* Truncate long text in mobile views */
 @media (max-width: 640px) {
   .truncate-mobile {

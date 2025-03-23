@@ -3,13 +3,14 @@ import React, { useState } from 'react';
 import PropertyCard, { PropertyProps } from './PropertyCard';
 import FadeIn from './FadeIn';
 
+// Updated image URLs to ensure they'll load correctly
 const PROPERTIES: PropertyProps[] = [
   {
     id: '1',
     title: 'Modern Apartment with Sea View',
     location: 'Worli, Mumbai',
     price: 75000000,
-    image: 'https://images.unsplash.com/photo-1622015663084-307d19eabafb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
     beds: 3,
     baths: 2,
     sqft: 1800,
@@ -34,7 +35,7 @@ const PROPERTIES: PropertyProps[] = [
     title: 'Premium Office Space',
     location: 'Bandra Kurla Complex, Mumbai',
     price: 120000,
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
     beds: 0,
     baths: 2,
     sqft: 2200,
@@ -46,7 +47,7 @@ const PROPERTIES: PropertyProps[] = [
     title: 'Modern Industrial Warehouse',
     location: 'Navi Mumbai, Maharashtra',
     price: 60000,
-    image: 'https://images.unsplash.com/photo-1553832732-2ebad6d9c9f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1565977944262-62ac0e7bbc52?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
     beds: 0,
     baths: 1,
     sqft: 8000,
@@ -58,7 +59,7 @@ const PROPERTIES: PropertyProps[] = [
     title: 'Penthouse with City Skyline View',
     location: 'South Mumbai, Maharashtra',
     price: 150000000,
-    image: 'https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
     beds: 5,
     baths: 5.5,
     sqft: 4200,
@@ -71,7 +72,7 @@ const PROPERTIES: PropertyProps[] = [
     title: 'Retail Space in Prime Location',
     location: 'Colaba, Mumbai',
     price: 180000,
-    image: 'https://images.unsplash.com/photo-1604014056072-33ab8a9d157f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1582037928769-181f2644ecb7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
     beds: 0,
     baths: 1,
     sqft: 1200,

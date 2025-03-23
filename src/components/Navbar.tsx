@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Home, Info, Building, MessageSquare, Phone } from 'lucide-react';
+import { Menu, X, Home, Info, Building, MessageSquare, Phone, Facebook, Twitter, Youtube, Smartphone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Navbar: React.FC = () => {
@@ -69,21 +69,55 @@ const Navbar: React.FC = () => {
     { name: 'Contact', href: '#contact', icon: <Phone size={16} className="mr-1" /> },
   ];
 
+  const socialLinks = [
+    { name: 'Facebook', href: 'https://facebook.com', icon: <Facebook size={18} /> },
+    { name: 'Twitter', href: 'https://twitter.com', icon: <Twitter size={18} /> },
+    { name: 'Youtube', href: 'https://youtube.com', icon: <Youtube size={18} /> },
+    { name: 'WhatsApp', href: 'https://wa.me/1234567890', icon: <Smartphone size={18} /> },
+  ];
+
   return (
     <nav 
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out',
-        scrolled ? 'glass py-3 shadow-md' : 'bg-transparent py-5'
+        scrolled ? 'glass py-2' : 'bg-transparent py-4'
       )}
     >
+      {/* Social Links Top Bar */}
+      <div className="bg-gray-100 py-1.5 hidden md:block">
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <a href="#home" className="flex items-center">
+            <span className="text-sm text-gray-600">Welcome to DPM Properties</span>
+          </a>
+          
+          <div className="flex items-center space-x-4">
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-cherry-500 transition-colors duration-200"
+                aria-label={link.name}
+              >
+                {link.icon}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+      
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#home" className="flex items-center z-50 relative">
           <div className={cn(
             "flex items-center transition-all duration-300",
             scrolled ? "scale-90" : "scale-100"
           )}>
-            <span className="text-cherry-500 font-bold text-2xl tracking-tight">DPM</span>
-            <span className="text-gray-900 font-medium text-2xl ml-1">Properties</span>
+            <img 
+              src="/lovable-uploads/02d92562-b9eb-49c5-a686-ba819ce4d9d0.png" 
+              alt="DPM Properties Logo" 
+              className="h-14 mr-2" 
+            />
           </div>
         </a>
         
@@ -137,7 +171,7 @@ const Navbar: React.FC = () => {
           isOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
-        <div className="flex flex-col items-center space-y-8 p-8">
+        <div className="flex flex-col items-center space-y-6 p-8">
           {navItems.map((item) => (
             <a
               key={item.name}
@@ -151,6 +185,23 @@ const Navbar: React.FC = () => {
               {item.name}
             </a>
           ))}
+          
+          {/* Social Media Links in Mobile Menu */}
+          <div className="flex space-x-6 mt-6 pt-6 border-t border-gray-200 w-full justify-center">
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-cherry-500 transition-colors duration-200"
+                aria-label={link.name}
+              >
+                {link.icon}
+              </a>
+            ))}
+          </div>
+          
           <a
             href="#contact"
             className="cherry-gradient text-white font-medium py-3 px-8 rounded-full mt-4 text-center w-full flex items-center justify-center"
