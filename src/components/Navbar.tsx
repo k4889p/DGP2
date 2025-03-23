@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
       <div className="bg-gray-100 py-1.5 hidden md:block">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <a href="#home" className="flex items-center">
-            <span className="text-sm text-gray-600">Welcome to DPM Properties</span>
+            <span className="text-sm text-gray-600">Welcome to DPM Properties <span className="font-medium ml-1">| Real Estate</span></span>
           </a>
           
           <div className="flex items-center space-x-4">
