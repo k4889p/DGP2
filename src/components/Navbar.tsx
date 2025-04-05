@@ -85,8 +85,16 @@ const Navbar: React.FC = () => {
             <img 
               src="/lovable-uploads/e8ce2bdc-c6f8-491f-b9d7-9e31b6124da9.png" 
               alt="DPM Properties Logo" 
-              className="h-14 mr-2" 
+              className="h-14 mr-3" 
             />
+            <div className="flex flex-col items-start">
+              <h1 className="font-bold text-xl leading-tight text-gray-900">
+                <span className="text-cherry-600">DPM</span> Properties
+              </h1>
+              <p className="text-sm font-medium text-gray-600 tracking-wide leading-tight">
+                Real Estate
+              </p>
+            </div>
           </div>
         </a>
         
