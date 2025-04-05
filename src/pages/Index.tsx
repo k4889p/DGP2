@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -9,6 +9,12 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 const Index: React.FC = () => {
+  const [searchParams, setSearchParams] = useState({
+    propertyType: '',
+    propertyStatus: '',
+    location: ''
+  });
+
   useEffect(() => {
     // Smooth scrolling for anchor links with offset for fixed navbar
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -39,6 +45,35 @@ const Index: React.FC = () => {
     } else {
       window.addEventListener('load', animateOnLoad);
       return () => window.removeEventListener('load', animateOnLoad);
+    }
+    
+    // Handle search params from URL
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get('type');
+    const status = params.get('status');
+    const location = params.get('location');
+    
+    if (type || status || location) {
+      setSearchParams({
+        propertyType: type || '',
+        propertyStatus: status || '',
+        location: location || ''
+      });
+      
+      // If search params exist, scroll to properties section
+      setTimeout(() => {
+        const propertiesSection = document.getElementById('properties');
+        if (propertiesSection) {
+          const headerOffset = 80;
+          const elementPosition = propertiesSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 500);
     }
   }, []);
 

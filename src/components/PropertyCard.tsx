@@ -15,6 +15,8 @@ export interface PropertyProps {
   type: 'residential' | 'commercial' | 'industrial';
   status: 'for-sale' | 'for-rent';
   featured?: boolean;
+  area?: string;
+  propertyType?: string;
 }
 
 interface PropertyCardProps {
