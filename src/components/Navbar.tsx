@@ -1,5 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, Home, Info, Building, MessageSquare, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -62,11 +62,11 @@ const Navbar: React.FC = () => {
   }, [isOpen]);
 
   const navItems = [
-    { name: 'Home', href: '#home', icon: <Home size={16} className="mr-1" /> },
-    { name: 'About', href: '#about', icon: <Info size={16} className="mr-1" /> },
-    { name: 'Properties', href: '#properties', icon: <Building size={16} className="mr-1" /> },
-    { name: 'Testimonials', href: '#testimonials', icon: <MessageSquare size={16} className="mr-1" /> },
-    { name: 'Contact', href: '#contact', icon: <Phone size={16} className="mr-1" /> },
+    { name: 'Home', to: '/#home', icon: <Home size={16} className="mr-1" /> },
+    { name: 'About', to: '/#about', icon: <Info size={16} className="mr-1" /> },
+    { name: 'Properties', to: '/#properties', icon: <Building size={16} className="mr-1" /> },
+    { name: 'Testimonials', to: '/#testimonials', icon: <MessageSquare size={16} className="mr-1" /> },
+    { name: 'Contact', to: '/#contact', icon: <Phone size={16} className="mr-1" /> },
   ];
 
   return (
@@ -77,7 +77,7 @@ const Navbar: React.FC = () => {
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="flex items-center z-50 relative">
+        <Link to="/#home" className="flex items-center z-50 relative">
           <div className={cn(
             "flex items-center transition-all duration-300",
             scrolled ? "scale-90" : "scale-100"
@@ -85,6 +85,7 @@ const Navbar: React.FC = () => {
             <img 
               src="/lovable-uploads/e8ce2bdc-c6f8-491f-b9d7-9e31b6124da9.png" 
               alt="DPM Properties Logo" 
+              loading="lazy"
               className="h-14 mr-3" 
             />
             <div className="flex flex-col items-start">
@@ -96,32 +97,32 @@ const Navbar: React.FC = () => {
               </p>
             </div>
           </div>
-        </a>
+        </Link>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-8">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.name}
-              href={item.href}
+              to={item.to}
               className="text-gray-800 hover:text-cherry-500 transition-colors duration-200 font-medium flex items-center group"
             >
               <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 transform -translate-x-2 group-hover:translate-x-0">
                 {item.icon}
               </span>
               <span>{item.name}</span>
-            </a>
+            </Link>
           ))}
         </div>
         
         {/* Contact Button */}
-        <a
-          href="#contact"
+        <Link
+          to="/#contact"
           className="hidden md:flex cherry-gradient text-white font-medium py-2 px-6 rounded-full hover:shadow-lg transition-all duration-300 items-center hover:scale-105"
         >
           <Phone size={16} className="mr-2" />
           Get in touch
-        </a>
+        </Link>
         
         {/* Mobile Menu Button */}
         <button
@@ -150,9 +151,9 @@ const Navbar: React.FC = () => {
       >
         <div className="flex flex-col items-center space-y-6 p-8">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.name}
-              href={item.href}
+              to={item.to}
               className="text-xl text-gray-800 hover:text-cherry-500 transition-colors duration-200 flex items-center"
               onClick={() => setIsOpen(false)}
             >
@@ -160,17 +161,17 @@ const Navbar: React.FC = () => {
                 {item.icon}
               </span>
               {item.name}
-            </a>
+            </Link>
           ))}
           
-          <a
-            href="#contact"
+          <Link
+            to="/#contact"
             className="cherry-gradient text-white font-medium py-3 px-8 rounded-full mt-4 text-center w-full flex items-center justify-center"
             onClick={() => setIsOpen(false)}
           >
             <Phone size={18} className="mr-2" />
             Get in touch
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

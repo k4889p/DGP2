@@ -1,24 +1,24 @@
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter, Linkedin, ChevronRight } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Properties', href: '#properties' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', to: '/#home' },
+    { name: 'About', to: '/#about' },
+    { name: 'Properties', to: '/#properties' },
+    { name: 'Testimonials', to: '/#testimonials' },
+    { name: 'Contact', to: '/#contact' }
   ];
   
   const services = [
-    { name: 'Property Buying', href: '#' },
-    { name: 'Property Selling', href: '#' },
-    { name: 'Property Renting', href: '#' },
-    { name: 'Property Management', href: '#' },
-    { name: 'Investment Consultation', href: '#' }
+    { name: 'Property Buying', to: '/#' },
+    { name: 'Property Selling', to: '/#' },
+    { name: 'Property Renting', to: '/#' },
+    { name: 'Property Management', to: '/#' },
+    { name: 'Investment Consultation', to: '/#' }
   ];
   
   const socialLinks = [
@@ -34,10 +34,10 @@ const Footer: React.FC = () => {
         <div className="py-16 px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <div className="mb-5">
-              <a href="#home" className="flex items-center">
+              <Link to="/#home" className="flex items-center">
                 <span className="text-cherry-500 font-bold text-2xl tracking-tight">DPM</span>
                 <span className="text-white font-medium text-2xl ml-1">Properties</span>
-              </a>
+              </Link>
             </div>
             
             <p className="text-gray-400 mb-6 leading-relaxed">
@@ -63,13 +63,13 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href} 
+                  <Link 
+                    to={link.to} 
                     className="text-gray-400 hover:text-cherry-500 transition-colors duration-200 flex items-center"
                   >
                     <ChevronRight size={16} className="mr-2" />
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -80,13 +80,13 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
-                  <a 
-                    href={service.href} 
+                  <Link 
+                    to={service.to} 
                     className="text-gray-400 hover:text-cherry-500 transition-colors duration-200 flex items-center"
                   >
                     <ChevronRight size={16} className="mr-2" />
                     {service.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
