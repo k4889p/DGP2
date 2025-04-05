@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import PropertyCard, { PropertyProps } from './PropertyCard';
 import FadeIn from './FadeIn';
@@ -253,26 +252,8 @@ const Properties: React.FC = () => {
         </FadeIn>
         
         <FadeIn delay={200}>
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <div className="flex justify-center items-center flex-wrap gap-3">
-              {propertyTypes.map((type) => (
-                <button
-                  key={type.value}
-                  onClick={() => setActiveFilter(type.value)}
-                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                    activeFilter === type.value
-                      ? 'cherry-gradient text-white shadow-md'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {type.label}
-                </button>
-              ))}
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+            <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
               <div className="flex flex-wrap gap-2">
                 {propertyStatus.map((status) => (
@@ -291,7 +272,7 @@ const Properties: React.FC = () => {
               </div>
             </div>
             
-            <div>
+            <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
               <div className="flex flex-wrap gap-2">
                 {locations.map((location) => (
@@ -310,7 +291,7 @@ const Properties: React.FC = () => {
               </div>
             </div>
             
-            <div>
+            <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
               <div className="flex flex-wrap gap-2">
                 {specificPropertyTypes.map((type) => (
