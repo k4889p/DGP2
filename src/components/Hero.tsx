@@ -12,18 +12,13 @@ const Hero: React.FC = () => {
 
   const locations = [
     { value: "goregaon", label: "Goregaon" },
-    { value: "malad", label: "Malad" },
     { value: "jogeshwari", label: "Jogeshwari" },
-    { value: "andheri", label: "Andheri" },
-    { value: "kandivali", label: "Kandivali" }
+    { value: "andheri", label: "Andheri" }
   ];
 
   const propertyTypes = [
     { value: "apartment", label: "Apartment" },
-    { value: "villa", label: "Villa" },
-    { value: "penthouse", label: "Penthouse" },
-    { value: "office", label: "Office Space" },
-    { value: "shop", label: "Retail Shop" }
+    { value: "commercial", label: "Commercial" }
   ];
 
   const propertyStatuses = [
@@ -63,15 +58,15 @@ const Hero: React.FC = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Text content */}
+          {/* Left side - Text content with NEW STYLE */}
           <div className="text-left max-w-2xl mx-auto lg:mx-0">
             <FadeIn className="mb-3">
-              <span className="inline-block px-4 py-1.5 bg-cherry-50 text-cherry-600 rounded-full text-sm font-medium">
-                Your Property Journey Begins Here
+              <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-cherry-100 to-cherry-200 text-cherry-800 rounded-full text-sm font-bold">
+                Premium Real Estate Solutions
               </span>
             </FadeIn>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-cherry-800 to-gray-900 tracking-tight mb-6 leading-tight">
               <AnimatedText 
                 text="Find Your Dream Property in Mumbai" 
                 delay={300}
@@ -79,7 +74,7 @@ const Hero: React.FC = () => {
             </h1>
             
             <FadeIn delay={600} className="mb-8">
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-xl font-light italic text-gray-700 leading-relaxed border-l-4 border-cherry-500 pl-4">
                 Premium properties handpicked for discerning clients. Experience excellence in real estate with Kaustubh Parab and the DPM Properties team.
               </p>
             </FadeIn>
@@ -174,6 +169,7 @@ const Hero: React.FC = () => {
               <img 
                 src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80" 
                 alt="Luxury Property" 
+                loading="lazy"
                 className="rounded-tl-3xl rounded-br-3xl shadow-2xl object-cover h-[600px] w-full transform -rotate-3 transition-transform duration-500 hover:rotate-0"
               />
               

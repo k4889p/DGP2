@@ -1,8 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import PropertyCard, { PropertyProps } from './PropertyCard';
 import FadeIn from './FadeIn';
 
-// Updated property data with properties from each specified location
+// Updated property data with only the specified locations and property types
 const PROPERTIES: PropertyProps[] = [
   // Goregaon Properties
   {
@@ -18,7 +19,8 @@ const PROPERTIES: PropertyProps[] = [
     status: 'for-sale',
     featured: true,
     area: 'goregaon',
-    propertyType: 'apartment'
+    propertyType: 'apartment',
+    externalLink: 'https://facebook.com' // Added external link
   },
   {
     id: '2',
@@ -32,37 +34,8 @@ const PROPERTIES: PropertyProps[] = [
     type: 'commercial',
     status: 'for-rent',
     area: 'goregaon',
-    propertyType: 'office'
-  },
-  
-  // Malad Properties
-  {
-    id: '3',
-    title: 'Luxury Villa with Private Pool',
-    location: 'Malad West, Mumbai',
-    price: 25000000,
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
-    beds: 4,
-    baths: 4.5,
-    sqft: 4500,
-    type: 'residential',
-    status: 'for-sale',
-    area: 'malad',
-    propertyType: 'villa'
-  },
-  {
-    id: '4',
-    title: 'Retail Space in Prime Location',
-    location: 'Malad East, Mumbai',
-    price: 180000,
-    image: 'https://images.unsplash.com/photo-1582037928769-181f2644ecb7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
-    beds: 0,
-    baths: 1,
-    sqft: 1200,
-    type: 'commercial',
-    status: 'for-rent',
-    area: 'malad',
-    propertyType: 'shop'
+    propertyType: 'commercial',
+    externalLink: 'https://facebook.com' // Added external link
   },
   
   // Jogeshwari Properties
@@ -79,21 +52,23 @@ const PROPERTIES: PropertyProps[] = [
     status: 'for-sale',
     featured: true,
     area: 'jogeshwari',
-    propertyType: 'penthouse'
+    propertyType: 'apartment',
+    externalLink: 'https://facebook.com' // Added external link
   },
   {
     id: '6',
-    title: 'Modern Industrial Warehouse',
+    title: 'Modern Commercial Space',
     location: 'Jogeshwari East, Mumbai',
     price: 60000,
     image: 'https://images.unsplash.com/photo-1565977944262-62ac0e7bbc52?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
     beds: 0,
     baths: 1,
     sqft: 8000,
-    type: 'industrial',
+    type: 'commercial',
     status: 'for-rent',
     area: 'jogeshwari',
-    propertyType: 'office'
+    propertyType: 'commercial',
+    externalLink: 'https://facebook.com' // Added external link
   },
   
   // Andheri Properties
@@ -109,7 +84,8 @@ const PROPERTIES: PropertyProps[] = [
     type: 'residential',
     status: 'for-sale',
     area: 'andheri',
-    propertyType: 'apartment'
+    propertyType: 'apartment',
+    externalLink: 'https://facebook.com' // Added external link
   },
   {
     id: '8',
@@ -123,37 +99,8 @@ const PROPERTIES: PropertyProps[] = [
     type: 'commercial',
     status: 'for-rent',
     area: 'andheri',
-    propertyType: 'office'
-  },
-  
-  // Kandivali Properties
-  {
-    id: '9',
-    title: 'Family Villa with Garden',
-    location: 'Kandivali, Mumbai',
-    price: 35000000,
-    image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
-    beds: 5,
-    baths: 4,
-    sqft: 3800,
-    type: 'residential',
-    status: 'for-sale',
-    area: 'kandivali',
-    propertyType: 'villa'
-  },
-  {
-    id: '10',
-    title: 'Retail Shop in Mall',
-    location: 'Kandivali East, Mumbai',
-    price: 85000,
-    image: 'https://images.unsplash.com/photo-1604754742629-3e5728249d73?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80',
-    beds: 0,
-    baths: 1,
-    sqft: 950,
-    type: 'commercial',
-    status: 'for-rent',
-    area: 'kandivali',
-    propertyType: 'shop'
+    propertyType: 'commercial',
+    externalLink: 'https://facebook.com' // Added external link
   }
 ];
 
@@ -167,8 +114,7 @@ const Properties: React.FC = () => {
   const propertyTypes = [
     { label: 'All Types', value: 'all' },
     { label: 'Residential', value: 'residential' },
-    { label: 'Commercial', value: 'commercial' },
-    { label: 'Industrial', value: 'industrial' }
+    { label: 'Commercial', value: 'commercial' }
   ];
   
   const propertyStatus = [
@@ -180,19 +126,14 @@ const Properties: React.FC = () => {
   const locations = [
     { label: 'All Locations', value: 'all' },
     { label: 'Goregaon', value: 'goregaon' },
-    { label: 'Malad', value: 'malad' },
     { label: 'Jogeshwari', value: 'jogeshwari' },
-    { label: 'Andheri', value: 'andheri' },
-    { label: 'Kandivali', value: 'kandivali' }
+    { label: 'Andheri', value: 'andheri' }
   ];
   
   const specificPropertyTypes = [
     { label: 'All Property Types', value: 'all' },
     { label: 'Apartment', value: 'apartment' },
-    { label: 'Villa', value: 'villa' },
-    { label: 'Penthouse', value: 'penthouse' },
-    { label: 'Office', value: 'office' },
-    { label: 'Shop', value: 'shop' }
+    { label: 'Commercial', value: 'commercial' }
   ];
   
   // Apply filters whenever they change

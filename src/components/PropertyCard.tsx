@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MapPin, Bed, Bath, Square } from 'lucide-react';
+import { MapPin, Bed, Bath, Square, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export interface PropertyProps {
@@ -17,6 +17,7 @@ export interface PropertyProps {
   featured?: boolean;
   area?: string;
   propertyType?: string;
+  externalLink?: string;
 }
 
 interface PropertyCardProps {
@@ -25,7 +26,7 @@ interface PropertyCardProps {
 }
 
 const PropertyCard: React.FC<PropertyCardProps> = ({ property, className }) => {
-  const { title, location, price, image, beds, baths, sqft, type, status, featured } = property;
+  const { title, location, price, image, beds, baths, sqft, type, status, featured, externalLink } = property;
   
   const formatPrice = (price: number) => {
     if (price >= 10000000) {
@@ -46,12 +47,24 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, className }) => {
       )}
     >
       <div className="relative">
-        <div className="aspect-w-16 aspect-h-10 overflow-hidden">
-          <img 
-            src={image} 
-            alt={title} 
-            className="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
-          />
+        <div className="aspect-w-16 aspect-h-10 overflow-hidden group">
+          <a 
+            href={externalLink || "#"} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="relative block w-full h-full"
+          >
+            <img 
+              src={image} 
+              alt={title} 
+              loading="lazy"
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <ExternalLink className="text-white" size={24} />
+              <span className="ml-2 text-white font-medium">View Details</span>
+            </div>
+          </a>
         </div>
         
         {featured && (

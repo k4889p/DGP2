@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter, Linkedin, ChevronRight } from 'lucide-react';
@@ -9,24 +10,43 @@ const Footer: React.FC = () => {
     { name: 'Home', to: '/#home' },
     { name: 'About', to: '/#about' },
     { name: 'Properties', to: '/#properties' },
-    { name: 'Testimonials', to: '/#testimonials' },
     { name: 'Contact', to: '/#contact' }
   ];
   
   const services = [
-    { name: 'Property Buying', to: '/#' },
-    { name: 'Property Selling', to: '/#' },
-    { name: 'Property Renting', to: '/#' },
-    { name: 'Property Management', to: '/#' },
-    { name: 'Investment Consultation', to: '/#' }
+    { name: 'Property Buying', to: '/#properties?status=buy' },
+    { name: 'Property Selling', to: '/#properties?status=sell' },
+    { name: 'Property Renting', to: '/#properties?status=rent' },
+    { name: 'Property Management', to: '/#contact' },
+    { name: 'Investment Consultation', to: '/#contact' }
   ];
   
   const socialLinks = [
-    { icon: <Facebook size={18} />, href: '#', label: 'Facebook' },
-    { icon: <Instagram size={18} />, href: '#', label: 'Instagram' },
-    { icon: <Twitter size={18} />, href: '#', label: 'Twitter' },
-    { icon: <Linkedin size={18} />, href: '#', label: 'LinkedIn' }
+    { icon: <Facebook size={18} />, href: 'https://facebook.com', label: 'Facebook' },
+    { icon: <Instagram size={18} />, href: 'https://instagram.com', label: 'Instagram' },
+    { icon: <Twitter size={18} />, href: 'https://twitter.com', label: 'Twitter' },
+    { icon: <Linkedin size={18} />, href: 'https://linkedin.com', label: 'LinkedIn' }
   ];
+
+  // Handler for smooth scrolling with custom behavior
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = -80; // Navbar offset
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({top: y, behavior: 'smooth'});
+    }
+  };
+
+  // Process links to extract IDs for smooth scrolling
+  const processLink = (to: string) => {
+    if (to.includes('#')) {
+      const parts = to.split('#');
+      return parts[parts.length - 1];
+    }
+    return '';
+  };
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -49,6 +69,8 @@ const Footer: React.FC = () => {
                 <a
                   key={index}
                   href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-cherry-500 hover:text-white transition-colors duration-300"
                   aria-label={link.label}
                 >
@@ -63,13 +85,14 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <Link 
-                    to={link.to} 
+                  <a 
+                    href={link.to}
+                    onClick={(e) => handleClick(e, processLink(link.to))}
                     className="text-gray-400 hover:text-cherry-500 transition-colors duration-200 flex items-center"
                   >
                     <ChevronRight size={16} className="mr-2" />
                     {link.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -80,13 +103,14 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
-                  <Link 
-                    to={service.to} 
+                  <a 
+                    href={service.to}
+                    onClick={(e) => handleClick(e, processLink(service.to))}
                     className="text-gray-400 hover:text-cherry-500 transition-colors duration-200 flex items-center"
                   >
                     <ChevronRight size={16} className="mr-2" />
                     {service.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -105,6 +129,7 @@ const Footer: React.FC = () => {
               </p>
               <a 
                 href="#contact" 
+                onClick={(e) => handleClick(e, 'contact')}
                 className="cherry-gradient inline-block text-white font-medium px-6 py-2 rounded-full hover:shadow-lg transition-shadow duration-300 text-sm"
               >
                 Send Inquiry
