@@ -12,7 +12,6 @@ const Hero: React.FC = () => {
 
   const locations = [
     { value: "goregaon", label: "Goregaon" },
-    { value: "jogeshwari", label: "Jogeshwari" },
     { value: "andheri", label: "Andheri" }
   ];
 
@@ -28,7 +27,6 @@ const Hero: React.FC = () => {
   ];
 
   const handleSearch = () => {
-    // Scroll to properties section with search filters
     const propertiesSection = document.getElementById('properties');
     if (propertiesSection) {
       const headerOffset = 80;
@@ -40,7 +38,6 @@ const Hero: React.FC = () => {
         behavior: 'smooth'
       });
 
-      // In a real implementation, we would pass these filters to the Properties component
       console.log("Search filters:", { propertyType, propertyStatus, location });
     }
   };
@@ -48,10 +45,10 @@ const Hero: React.FC = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex items-center py-24 overflow-hidden bg-gray-50"
+      className="relative min-h-screen flex items-center py-24 overflow-hidden bg-gradient-to-br from-gray-50 to-white"
     >
       {/* Background pattern */}
-      <div className="absolute inset-0 z-0 opacity-5">
+      <div className="absolute inset-0 z-0 opacity-10">
         <div className="absolute inset-0 bg-[radial-gradient(#E61E2A_1px,transparent_1px)] [background-size:20px_20px]"></div>
       </div>
       
@@ -60,29 +57,33 @@ const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text content with NEW STYLE */}
           <div className="text-left max-w-2xl mx-auto lg:mx-0">
-            <FadeIn className="mb-3">
-              <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-cherry-100 to-cherry-200 text-cherry-800 rounded-full text-sm font-bold">
+            <FadeIn className="mb-4">
+              <span className="inline-block px-4 py-1.5 bg-cherry-100 text-cherry-800 rounded-full text-sm font-bold shadow-md">
                 Premium Real Estate Solutions
               </span>
             </FadeIn>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-cherry-800 to-gray-900 tracking-tight mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 tracking-tight mb-6 leading-tight">
               <AnimatedText 
-                text="Find Your Dream Property in Mumbai" 
+                text="Find Your Dream Property" 
                 delay={300}
+                className="text-transparent bg-clip-text bg-gradient-to-r from-cherry-600 to-cherry-400"
               />
+              <div className="text-4xl md:text-5xl lg:text-6xl mt-2 text-gray-700">
+                in <span className="text-cherry-500">Mumbai</span>
+              </div>
             </h1>
             
             <FadeIn delay={600} className="mb-8">
-              <p className="text-xl font-light italic text-gray-700 leading-relaxed border-l-4 border-cherry-500 pl-4">
-                Premium properties handpicked for discerning clients. Experience excellence in real estate with Kaustubh Parab and the DPM Properties team.
+              <p className="text-xl font-light text-gray-700 leading-relaxed border-l-4 border-cherry-500 pl-4 italic">
+                Premium properties handpicked for discerning clients. Experience excellence with DPM Properties.
               </p>
             </FadeIn>
             
             {/* Property Search Box */}
             <FadeIn delay={800} className="mb-8">
-              <div className="bg-white p-5 rounded-xl shadow-lg">
-                <h3 className="text-lg font-semibold mb-4 text-gray-800">Find Your Perfect Property</h3>
+              <div className="bg-white p-6 rounded-2xl shadow-2xl border border-gray-100">
+                <h3 className="text-xl font-semibold mb-4 text-gray-800 text-center">Find Your Perfect Property</h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                   <div className="space-y-2">
@@ -136,9 +137,9 @@ const Hero: React.FC = () => {
                 
                 <button 
                   onClick={handleSearch}
-                  className="w-full cherry-gradient text-white font-medium px-6 py-3 rounded-lg text-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center justify-center"
+                  className="w-full bg-gradient-to-r from-cherry-500 to-cherry-600 text-white font-bold px-6 py-3.5 rounded-lg text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
                 >
-                  <Search size={18} className="mr-2" />
+                  <Search size={20} className="mr-2" />
                   Search Properties
                 </button>
               </div>
@@ -167,7 +168,7 @@ const Hero: React.FC = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-cherry-500 rounded-tl-3xl rounded-br-3xl opacity-10 transform rotate-3"></div>
               <img 
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80" 
+                src="/lovable-uploads/f13c4912-feb3-4a43-b6ef-aa00a2b3585b.png" 
                 alt="Luxury Property" 
                 loading="lazy"
                 className="rounded-tl-3xl rounded-br-3xl shadow-2xl object-cover h-[600px] w-full transform -rotate-3 transition-transform duration-500 hover:rotate-0"
@@ -201,3 +202,4 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
