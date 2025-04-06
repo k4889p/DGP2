@@ -72,7 +72,7 @@ const Navbar: React.FC = () => {
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="flex items-center z-50 relative">
+        {/* <a href="#home" className="flex items-center z-50 relative">
           <div className={cn(
             "flex items-center transition-all duration-300",
             scrolled ? "scale-90" : "scale-100"
@@ -92,7 +92,40 @@ const Navbar: React.FC = () => {
               </p>
             </div>
           </div>
-        </a>
+        </a> */}
+        <a href="#home" className="flex items-center z-50 relative">
+  <div
+    className={cn(
+      "flex items-center transition-all duration-300",
+      scrolled ? "scale-90" : "scale-100"
+    )}
+  >
+    <img
+      src="/lovable-uploads/image-removebg-preview.png"
+      alt="DPM Properties Logo"
+      loading="lazy"
+      className="h-20 mr-3 md:h-20 h-12 w-auto object-contain"
+    />
+    {/* <div className="flex flex-col items-start leading-none">
+      <h1 className="font-extrabold text-2xl md:text-4xl text-cherry-700 drop-shadow-sm whitespace-nowrap">
+        <span>DPM</span> <span className="block md:inline">Properties</span>
+      </h1>
+      <p className="text-base md:text-2xl font-bold text-orange-500 tracking-wide drop-shadow-md">
+        Real Estate
+      </p>
+    </div> */}
+    <div className="flex flex-col items-start leading-none">
+  <h1 className="font-extrabold text-2xl md:text-4xl text-cherry-700 drop-shadow-sm whitespace-nowrap">
+    DPM Properties
+  </h1>
+  <p className="text-base md:text-2xl font-bold text-orange-500 tracking-wide drop-shadow-md">
+    Real Estate
+  </p>
+</div>
+
+  </div>
+</a>
+
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-8">

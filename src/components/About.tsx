@@ -22,7 +22,7 @@ const About: React.FC = () => {
               <div className="bg-white rounded-2xl overflow-hidden shadow-elegant p-3">
                 <div className="aspect-w-4 aspect-h-3 rounded-xl overflow-hidden">
                   <img 
-                    src="https://plus.unsplash.com/premium_photo-1709927273243-bfffe1e287e3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ5fHxQcm9wZXJ0eSUyMHJlZCUyME11bWJhaXxlbnwwfDB8MHx8fDA%3D" 
+                    src="/lovable-uploads/WhatsApp Image 2025-04-06 at 2.44.53 PM.jpeg" 
                     alt="Kaustubh Parab" 
                     className="object-cover h-full w-full"
                   />

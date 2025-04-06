@@ -13,18 +13,18 @@ const Contact: React.FC = () => {
     message: '',
     propertyType: 'residential'
   });
-  
+
   const [loading, setLoading] = useState(false);
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setLoading(false);
@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
       });
     }, 1500);
   };
-  
+
   const contactInfo = [
     {
       icon: <Phone className="w-5 h-5" />,
@@ -60,14 +60,14 @@ const Contact: React.FC = () => {
       title: 'Visit Us',
       info: (
         <>
-          G/061, Shagun Arcade, Opp.HDFC Bank,<br />
-          Before Dindoshi Bus Depot, Filmcity Road, <br />
-          Malad (E), Mumbai-400 097
+          G/061, Shagun Arcade, Opp.HDFC Bank,
+          Before Dindoshi Bus Depot, Filmcity Road,
+          Malad (E), Mumbai-400097
         </>
       ),
       link: 'https://maps.app.goo.gl/dZAezwocQ4RBxpbq9'
     }
-    
+
   ];
 
   return (
@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
             </p>
           </div>
         </FadeIn>
-        
+
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-10">
             <FadeIn direction="left" className="lg:col-span-2">
@@ -91,29 +91,28 @@ const Contact: React.FC = () => {
                   <Mail className="mr-2 text-cherry-500" size={20} />
                   Contact Information
                 </h3>
-                
-                <div className="space-y-6">
+
+                <div className="space-y-8 text-center">
                   {contactInfo.map((item, index) => (
-                    <a 
+                    <a
                       key={index}
                       href={item.link}
                       target={item.title === 'Visit Us' ? '_blank' : undefined}
                       rel={item.title === 'Visit Us' ? 'noopener noreferrer' : undefined}
-                      className="flex items-start gap-4 group w-full max-w-full overflow-hidden"
+                      className="flex flex-col items-center group"
                     >
-                      <div className="w-10 h-10 rounded-full cherry-gradient flex items-center justify-center flex-shrink-0 text-white group-hover:scale-110 transition-transform">
+                      <div className="w-12 h-12 rounded-full cherry-gradient flex items-center justify-center text-white mb-2 group-hover:scale-110 transition-transform">
                         {item.icon}
                       </div>
-                      <div className="overflow-hidden">
-                        <h4 className="font-medium text-gray-900">{item.title}</h4>
-                        <p className="text-gray-600 group-hover:text-cherry-500 transition-colors truncate">
-                          {item.info}
-                        </p>
-                      </div>
+                      <h4 className="font-medium text-gray-900 mb-1">{item.title}</h4>
+                      <p className="text-gray-600 group-hover:text-cherry-500 transition-colors text-sm text-center">
+                        {item.info}
+                      </p>
                     </a>
                   ))}
                 </div>
-                
+
+
                 <div className="mt-10">
                   <h4 className="font-medium text-gray-900 mb-4 flex items-center">
                     <Clock className="mr-2 text-cherry-500" size={18} />
@@ -125,15 +124,15 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </FadeIn>
-            
+
             <FadeIn direction="right" delay={200} className="lg:col-span-3">
               <div className="bg-white rounded-xl shadow-elegant p-6 md:p-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
                   <Send className="mr-2 text-cherry-500" size={20} />
                   Send Us a Message
                 </h3>
-                
-                <form onSubmit={handleSubmit} className="space-y-6">
+
+                <form onSubmit={handleSubmit} className="space-y-6 text-left">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
@@ -150,7 +149,7 @@ const Contact: React.FC = () => {
                         placeholder="Your name"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                         Email Address <span className="text-cherry-500">*</span>
@@ -167,7 +166,7 @@ const Contact: React.FC = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
@@ -183,7 +182,7 @@ const Contact: React.FC = () => {
                         placeholder="Your phone number"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="propertyType" className="block text-sm font-medium text-gray-700 mb-1">
                         Property Interest
@@ -202,7 +201,7 @@ const Contact: React.FC = () => {
                       </select>
                     </div>
                   </div>
-                  
+
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                       Message <span className="text-cherry-500">*</span>
@@ -218,7 +217,7 @@ const Contact: React.FC = () => {
                       placeholder="Tell us about your requirements..."
                     ></textarea>
                   </div>
-                  
+
                   <button
                     type="submit"
                     disabled={loading}
