@@ -101,21 +101,24 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#home" onClick={(e) => handleClick(e, 'home')} className="flex items-center z-50 relative">
           <div className={cn(
-            "flex items-center transition-all duration-300",
+            "flex items-center transition-all duration-300 space-x-4 items-center",
             scrolled ? "scale-90" : "scale-100"
           )}>
             <img 
-              src="/lovable-uploads/e8ce2bdc-c6f8-491f-b9d7-9e31b6124da9.png" 
+              src="/lovable-uploads/1c35beac-49dd-473e-91f2-f78ea01a3a4f.png" 
               alt="DPM Properties Logo" 
               loading="lazy"
-              className="h-14 mr-3" 
+              className="h-20 w-20 object-contain" 
             />
             <div className="flex flex-col items-start">
-              <h1 className="font-bold text-xl leading-tight text-gray-900">
-                <span className="text-cherry-600">DPM</span> Properties
+              <h1 className="font-extrabold text-3xl leading-tight text-gray-900">
+                <span className="text-cherry-600">DPM</span> 
+                <span className="ml-2 bg-gradient-to-r from-cherry-600 to-cherry-400 text-transparent bg-clip-text">
+                  Properties
+                </span>
               </h1>
-              <p className="text-sm font-medium text-gray-600 tracking-wide leading-tight">
-                Real Estate
+              <p className="text-lg font-medium text-gray-600 tracking-wide leading-tight">
+                Real Estate Solutions
               </p>
             </div>
           </div>
