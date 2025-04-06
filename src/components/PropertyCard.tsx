@@ -7,7 +7,6 @@ export interface PropertyProps {
   id: string;
   title: string;
   location: string;
-  price: number;
   image: string;
   beds: number;
   baths: number;
@@ -26,7 +25,7 @@ interface PropertyCardProps {
 }
 
 const PropertyCard: React.FC<PropertyCardProps> = ({ property, className }) => {
-  const { title, location, price, image, beds, baths, sqft, type, status, featured, externalLink } = property;
+  const { title, location, image, beds, baths, sqft, type, status, featured, externalLink } = property;
   
   const formatPrice = (price: number) => {
     if (price >= 10000000) {
@@ -86,9 +85,9 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, className }) => {
           </span>
         </div>
         
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+        {/* <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
           <div className="text-white font-bold text-lg">{formatPrice(price)}</div>
-        </div>
+        </div> */}
       </div>
       
       <div className="p-5">

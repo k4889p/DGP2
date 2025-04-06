@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
             </div>
             
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Premium real estate experiences curated by Kaustubh Parab. Connecting discerning clients with exceptional properties since 2012.
+              Premium real estate experiences curated by Mrs. Deepali Parab. Connecting discerning clients with exceptional properties since 2012.
             </p>
             
             <div className="flex space-x-3">
@@ -120,12 +120,13 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-bold mb-5">Get In Touch</h3>
             <div className="space-y-4">
               <p className="text-gray-400">
-                DPM Properties Office<br />
-                Mumbai, Maharashtra, India
+              G/061, Shagun Arcade, Opp.HDFC Bank,<br />
+          Before Dindoshi Bus Depot, Filmcity Road, <br />
+          Malad (E), Mumbai-400 097
               </p>
               <p className="text-gray-400">
-                <span className="block mb-1">Email: contact@dpmproperties.com</span>
-                <span>Phone: +91 98765 43210</span>
+                <span className="block mb-1">Email: dpmproperties20@gmail.com</span>
+                <span>Phone: +91 90762 52228</span>
               </p>
               <a 
                 href="#contact" 

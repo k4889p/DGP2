@@ -12,7 +12,8 @@ const Hero: React.FC = () => {
 
   const locations = [
     { value: "goregaon", label: "Goregaon" },
-    { value: "andheri", label: "Andheri" }
+    { value: "andheri", label: "Andheri" },
+    { value: "jogeshwari", label: "jogeshwari" }
   ];
 
   const propertyTypes = [
@@ -96,7 +97,7 @@ const Hero: React.FC = () => {
             {/* Stats and highlights */}
             <FadeIn delay={800} className="mt-8">
               <div className="grid grid-cols-3 gap-4">
-                <div className="bg-white/30 backdrop-blur-md rounded-lg p-4 border-l-4 border-cherry-500 transform hover:-translate-y-1 transition-all duration-300">
+                {/* <div className="bg-white/30 backdrop-blur-md rounded-lg p-4 border-l-4 border-cherry-500 transform hover:-translate-y-1 transition-all duration-300">
                   <div className="flex items-center space-x-2">
                     <Home className="text-cherry-600" size={28} />
                     <div>
@@ -104,7 +105,7 @@ const Hero: React.FC = () => {
                       <div className="text-gray-700 text-sm">Properties</div>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 
                 <div className="bg-white/30 backdrop-blur-md rounded-lg p-4 border-l-4 border-cherry-500 transform hover:-translate-y-1 transition-all duration-300">
                   <div className="flex items-center space-x-2">
@@ -141,7 +142,7 @@ const Hero: React.FC = () => {
                 <div className="relative overflow-hidden rounded-2xl border-2 border-cherry-500/20 shadow-lg">
                   <div className="absolute inset-0 bg-black/10 z-10"></div>
                   <img 
-                    src="/lovable-uploads/f13c4912-feb3-4a43-b6ef-aa00a2b3585b.png" 
+                    src="https://plus.unsplash.com/premium_photo-1710282123801-70619239ee2f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG9tZSUyMGJ1aWxkaW5nJTIwcHJvcGVydHR5JTIwcmVkfGVufDB8fDB8fHww" 
                     alt="Luxury Property" 
                     loading="lazy"
                     className="w-full h-[350px] object-cover transform transition-transform duration-700 hover:scale-110"
@@ -155,7 +156,7 @@ const Hero: React.FC = () => {
               </div>
               
               {/* Property Search Box */}
-              <div className="bg-white/80 backdrop-blur-lg p-6 rounded-2xl border border-cherry-500/10 shadow-2xl">
+              {/* <div className="bg-white/80 backdrop-blur-lg p-6 rounded-2xl border border-cherry-500/10 shadow-2xl">
                 <h3 className="text-xl font-semibold mb-4 text-gray-900 text-center">
                   <span className="border-b-2 border-cherry-500 pb-1">Find Your Perfect Property</span>
                 </h3>
@@ -226,7 +227,52 @@ const Hero: React.FC = () => {
                   <Search size={20} className="mr-2 group-hover:animate-bounce" />
                   Explore Properties
                 </button>
-              </div>
+              </div> */}
+              {/* Why Choose Us Panel */}
+<div className="bg-white/80 backdrop-blur-lg p-6 rounded-2xl border border-cherry-500/10 shadow-2xl max-w-3xl mx-auto text-center">
+  <h3 className="text-2xl font-semibold mb-8 text-gray-900">
+    <span className="border-b-2 border-cherry-500 pb-1">Why Choose CGS Realty</span>
+  </h3>
+
+  <div className="grid grid-cols-1 gap-6">
+    {/* Feature 1 */}
+    <div className="flex flex-col items-center text-center">
+      <Home className="text-cherry-600 mb-2" size={24} />
+      <p className="text-gray-900 font-bold">Luxury Mumbai Specialists</p>
+      <p className="text-gray-600 text-sm max-w-md">
+        We know every skyline, street and secret deal in the city.
+      </p>
+    </div>
+
+    {/* Feature 2 */}
+    <div className="flex flex-col items-center text-center">
+      <Building className="text-cherry-600 mb-2" size={24} />
+      <p className="text-gray-900 font-bold">Tailored Property Matches</p>
+      <p className="text-gray-600 text-sm max-w-md">
+        We handpick homes that match your lifestyle, not just your budget.
+      </p>
+    </div>
+
+    {/* Feature 3 */}
+    <div className="flex flex-col items-center text-center">
+      <Tag className="text-cherry-600 mb-2" size={24} />
+      <p className="text-gray-900 font-bold">Best Value, No Compromise</p>
+      <p className="text-gray-600 text-sm max-w-md">
+        Unmatched listings with premium finishes at fair prices.
+      </p>
+    </div>
+
+    {/* Feature 4 */}
+    <div className="flex flex-col items-center text-center">
+      <MapPin className="text-cherry-600 mb-2" size={24} />
+      <p className="text-gray-900 font-bold">Prime Locations Only</p>
+      <p className="text-gray-600 text-sm max-w-md">
+        From Bandra to Andheri – we only show top-tier properties.
+      </p>
+    </div>
+  </div>
+</div>
+
             </FadeIn>
           </div>
         </div>

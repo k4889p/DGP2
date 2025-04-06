@@ -46,21 +46,28 @@ const Contact: React.FC = () => {
     {
       icon: <Phone className="w-5 h-5" />,
       title: 'Call Us',
-      info: '+91 98765 43210',
-      link: 'tel:+919876543210'
+      info: '+91 90762 52228',
+      link: 'tel:+919076252228'
     },
     {
       icon: <Mail className="w-5 h-5" />,
       title: 'Email Us',
-      info: 'contact@dpmproperties.com',
-      link: 'mailto:contact@dpmproperties.com'
+      info: 'dpmproperties20@gmail.com',
+      link: 'mailto:dpmproperties20@gmail.com'
     },
     {
       icon: <MapPin className="w-5 h-5" />,
       title: 'Visit Us',
-      info: 'Mumbai, Maharashtra, India',
-      link: 'https://maps.google.com'
+      info: (
+        <>
+          G/061, Shagun Arcade, Opp.HDFC Bank,<br />
+          Before Dindoshi Bus Depot, Filmcity Road, <br />
+          Malad (E), Mumbai-400 097
+        </>
+      ),
+      link: 'https://maps.app.goo.gl/dZAezwocQ4RBxpbq9'
     }
+    
   ];
 
   return (
@@ -113,9 +120,7 @@ const Contact: React.FC = () => {
                     Business Hours
                   </h4>
                   <div className="space-y-2 text-gray-600 pl-6">
-                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                    <p>Saturday: 10:00 AM - 4:00 PM</p>
-                    <p>Sunday: Closed</p>
+                    <p>Monday - Sunday: 10:00 AM - 7:00 PM</p>
                   </div>
                 </div>
               </div>

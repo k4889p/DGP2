@@ -5,7 +5,7 @@ import FadeIn from './FadeIn';
 
 const About: React.FC = () => {
   const highlights = [
-    "10+ years of industry experience",
+    "4+ years of industry experience",
     "Premium property portfolio",
     "Personalized client experience",
     "Expert market knowledge",
@@ -22,7 +22,7 @@ const About: React.FC = () => {
               <div className="bg-white rounded-2xl overflow-hidden shadow-elegant p-3">
                 <div className="aspect-w-4 aspect-h-3 rounded-xl overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" 
+                    src="https://plus.unsplash.com/premium_photo-1709927273243-bfffe1e287e3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ5fHxQcm9wZXJ0eSUyMHJlZCUyME11bWJhaXxlbnwwfDB8MHx8fDA%3D" 
                     alt="Kaustubh Parab" 
                     className="object-cover h-full w-full"
                   />
@@ -42,7 +42,7 @@ const About: React.FC = () => {
               </h2>
               
               <p className="text-gray-700 mb-8 leading-relaxed">
-                Founded by Kaustubh Parab, DPM Properties is committed to redefining the real estate experience. We combine industry expertise with personalized service to connect discerning clients with exceptional properties that meet their unique needs and preferences.
+                Founded by Mrs. Deepali Parab, DPM Properties is committed to redefining the real estate experience. We combine industry expertise with personalized service to connect discerning clients with exceptional properties that meet their unique needs and preferences.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
