@@ -41,7 +41,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, className }) => {
     <div 
       className={cn(
         "bg-white rounded-xl overflow-hidden property-card-shadow h-full transition-all duration-300",
-        featured ? "ring-2 ring-cherry-500" : "hover:ring-1 hover:ring-gray-200",
+        featured ? "ring-2 ring-yellow-500" : "hover:ring-1 hover:ring-gray-200",
         className
       )}
     >
@@ -68,7 +68,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, className }) => {
         
         {featured && (
           <div className="absolute top-3 left-3">
-            <span className="cherry-gradient text-white text-xs font-medium px-3 py-1 rounded-full">
+            <span className="yellow-gradient text-white text-xs font-medium px-3 py-1 rounded-full">
               Featured
             </span>
           </div>
@@ -106,7 +106,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, className }) => {
         </div>
         
         <div className="flex items-center text-gray-500 mb-4">
-          <MapPin size={14} className="mr-1 text-cherry-500" />
+          <MapPin size={14} className="mr-1 text-yellow-500" />
           <span className="text-sm">{location}</span>
         </div>
         

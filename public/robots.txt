@@ -1,0 +1,6 @@
+# Allow all crawlers during development
+User-agent: *
+Disallow:
+
+# Point to local sitemap (used only during development)
+Sitemap: http://localhost:8080/sitemap.xml

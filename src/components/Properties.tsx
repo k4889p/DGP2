@@ -207,7 +207,7 @@ const Properties: React.FC = () => {
       <div className="container mx-auto">
         <FadeIn>
           <div className="text-center mb-16">
-            <span className="text-cherry-500 font-medium text-sm uppercase tracking-wider">Our Listings</span>
+            <span className="text-yellow-600 font-medium text-sm uppercase tracking-wider">Our Listings</span>
             <h2 className="section-title mt-2">Exceptional Properties</h2>
             <p className="section-subtitle">
               Discover our handpicked selection of premium properties carefully chosen to meet the highest standards of quality and comfort.
@@ -218,7 +218,7 @@ const Properties: React.FC = () => {
         <FadeIn delay={200}>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
+              <label className="block text-sm font-medium text-yellow-700 mb-2">Status</label>
               <div className="flex flex-wrap gap-2">
                 {propertyStatus.map((status) => (
                   <button
@@ -226,8 +226,8 @@ const Properties: React.FC = () => {
                     onClick={() => setStatusFilter(status.value)}
                     className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
                       statusFilter === status.value
-                        ? 'cherry-gradient text-white shadow-md'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        ? 'yellow-gradient text-yellow-600 shadow-md'
+                        : 'bg-gray-100 text-yellow-700 hover:bg-gray-200'
                     }`}
                   >
                     {status.label}
@@ -237,7 +237,7 @@ const Properties: React.FC = () => {
             </div>
             
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
+              <label className="block text-sm font-medium text-yellow-700 mb-2">Location</label>
               <div className="flex flex-wrap gap-2">
                 {locations.map((location) => (
                   <button
@@ -245,8 +245,8 @@ const Properties: React.FC = () => {
                     onClick={() => setLocationFilter(location.value)}
                     className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
                       locationFilter === location.value
-                        ? 'cherry-gradient text-white shadow-md'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        ? 'yellow-gradient text-yellow shadow-md'
+                        : 'bg-gray-100 text-yellow-700 hover:bg-gray-200'
                     }`}
                   >
                     {location.label}
@@ -256,7 +256,7 @@ const Properties: React.FC = () => {
             </div>
             
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
+              <label className="block text-sm font-medium text-yellow-700 mb-2">Property Type</label>
               <div className="flex flex-wrap gap-2">
                 {specificPropertyTypes.map((type) => (
                   <button
@@ -264,8 +264,8 @@ const Properties: React.FC = () => {
                     onClick={() => setPropertyTypeFilter(type.value)}
                     className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
                       propertyTypeFilter === type.value
-                        ? 'cherry-gradient text-white shadow-md'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        ? 'yellow-gradient text-yellow shadow-md'
+                        : 'bg-gray-100 text-yellow-700 hover:bg-gray-200'
                     }`}
                   >
                     {type.label}
@@ -282,7 +282,7 @@ const Properties: React.FC = () => {
                   setLocationFilter('all');
                   setPropertyTypeFilter('all');
                 }}
-                className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 w-full"
+                className="bg-gray-200 hover:bg-gray-300 text-yellow-800 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 w-full"
               >
                 Reset Filters
               </button>
@@ -300,7 +300,7 @@ const Properties: React.FC = () => {
           </div>
         ) : (
           <div className="text-center py-10">
-            <h3 className="text-xl font-medium text-gray-700 mb-2">No properties found</h3>
+            <h3 className="text-xl font-medium text-yellow-700 mb-2">No properties found</h3>
             <p className="text-gray-500">Try changing your search criteria or contact us for custom property options.</p>
           </div>
         )}
@@ -312,7 +312,7 @@ const Properties: React.FC = () => {
             </p>
             <a 
               href="#contact" 
-              className="inline-block cherry-gradient text-white font-medium px-8 py-3 rounded-full hover:shadow-lg transition-shadow duration-300"
+              className="inline-block yellow-gradient text-yellow-600 font-medium px-8 py-3 rounded-full hover:shadow-lg transition-shadow duration-300"
             >
               Inquire About Properties
             </a>
